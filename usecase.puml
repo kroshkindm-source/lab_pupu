@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+
+actor "Заведующий этажом" as manager
+actor "Студент" as student
+actor "комендант" as a
+usecase "Фото студента" as photo
+usecase "ФИО студента" as name
+usecase "паспортные данные студента" as passport
+usecase "нарушения студента" as violations
+usecase "комната, в которую заселен студент" as room
+usecase "этаж, на котором проживает студент" as floor
+usecase "контактные данные студента" as contacts
+usecase "редактирование нарушений" as edit_violations
+usecase "Редактирование информации о заселении и выселении" as edit_full
+manager --> photo
+manager --> name
+manager --> passport
+manager --> violations
+manager --> room
+manager --> floor
+
+
+manager --> edit_violations
+student --> photo
+student --> name
+student --> passport
+student --> violations
+student --> room
+student --> floor
+student --> contacts
+a --> edit_full
+a --> photo
+a --> name
+a --> passport
+a --> violations
+a --> room
+a --> floor
+a --> contacts
+a --> edit_violations
+@enduml
