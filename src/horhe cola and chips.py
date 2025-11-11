@@ -247,33 +247,6 @@ if __name__ == "__main__":
                 contacts="+79991234567",
                 obshaga_num=1,
                 narush="Нет нарушений"
-            ),
-            Zaselenie(
-                name="Петров Алексей Владимирович",
-                flat=315,
-                passport_num="1234 567892",
-                inst="ИНЭЛ",
-                contacts="+79991234568",
-                obshaga_num=2,
-                narush="Курение в комнате"
-            ),
-            Zaselenie(
-                name="Сидорова Мария Игоревна",
-                flat=228,
-                passport_num="1234 567893",
-                inst="ИРИТ",
-                contacts="+79991234569",
-                obshaga_num=1,
-                narush="Шум в ночное время"
-            ),
-            Zaselenie(
-                name="Иванов Дмитрий Сергеевич",
-                flat=315,
-                passport_num="1234 567894",
-                inst="ИНЭЛ",
-                contacts="+79991234570",
-                obshaga_num=2,
-                narush="Нет нарушений"
             )
         ]
 
