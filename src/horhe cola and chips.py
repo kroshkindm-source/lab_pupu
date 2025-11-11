@@ -105,7 +105,7 @@ def print_residents(residents, flat_number):
         print(f"  Контакты: {resident['contacts']}")
         print(f"  Общежитие: №{resident['obshaga_num']}")
         print(f"  Нарушения: {resident['violations']}")
-        print(f"  Статус выселения: {resident['eviction_status']}")
+        print(f"  Состояние комнаты2: {resident['eviction_status']}")
         print(f"  Готов к выселению: {'Да' if resident['ready_to_evict'] else 'Нет'}")
         print(f"{'-' * 40}")
 
