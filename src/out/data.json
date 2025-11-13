@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "name": "Китов Артём Андреевич",
+    "flat": 228,
+    "passport_num": "6969 228228",
+    "inst": "ИРИТ",
+    "contacts": "+79997776969",
+    "obshaga_num": 1,
+    "narush": "Насрал посередине комнаты",
+    "viselenie": {
+      "id": 1,
+      "sost": "неуд",
+      "ready": false
+    }
+  },
+  {
+    "id": 2,
+    "name": "Хивинова Ирина Александровна",
+    "flat": 228,
+    "passport_num": "1234 567891",
+    "inst": "ИРИТ",
+    "contacts": "+79991234567",
+    "obshaga_num": 1,
+    "narush": "Нет нарушений",
+    "viselenie": {
+      "id": 9,
+      "sost": "уд",
+      "ready": false
+    }
+  },
+  {
+    "id": 9,
+    "name": "Крошкин Дмитрий Владимирович",
+    "flat": 107,
+    "passport_num": "2421 063119",
+    "inst": "ИРИТ",
+    "contacts": "+79203573573",
+    "obshaga_num": 1,
+    "narush": "Нет",
+    "viselenie": {
+      "id": 10,
+      "sost": "уд",
+      "ready": false
+    }
+  },
+  {
+    "id": 10,
+    "name": "Сидоров Георгий Владимирович",
+    "flat": 69,
+    "passport_num": "8989 678532",
+    "inst": "ИРИТ",
+    "contacts": "+79200173800",
+    "obshaga_num": 3,
+    "narush": "Дрочил в туалете общежития",
+    "viselenie": {
+      "id": 11,
+      "sost": "неуд",
+      "ready": false
+    }
+  },
+  {
+    "id": 11,
+    "name": "Сорокин Алексей Александрович",
+    "flat": 107,
+    "passport_num": "1488 228666",
+    "inst": "ИРИТ",
+    "contacts": "+79993225252",
+    "obshaga_num": 1,
+    "narush": "Курил травку в комнате",
+    "viselenie": {
+      "id": 12,
+      "sost": "неуд",
+      "ready": true
+    }
+  }
+]

@@ -1,0 +1,60 @@
+- contacts: '+79997776969'
+  flat: 228
+  id: 1
+  inst: ИРИТ
+  name: Китов Артём Андреевич
+  narush: Насрал посередине комнаты
+  obshaga_num: 1
+  passport_num: 6969 228228
+  viselenie:
+    id: 1
+    ready: false
+    sost: неуд
+- contacts: '+79991234567'
+  flat: 228
+  id: 2
+  inst: ИРИТ
+  name: Хивинова Ирина Александровна
+  narush: Нет нарушений
+  obshaga_num: 1
+  passport_num: 1234 567891
+  viselenie:
+    id: 9
+    ready: false
+    sost: уд
+- contacts: '+79203573573'
+  flat: 107
+  id: 9
+  inst: ИРИТ
+  name: Крошкин Дмитрий Владимирович
+  narush: Нет
+  obshaga_num: 1
+  passport_num: 2421 063119
+  viselenie:
+    id: 10
+    ready: false
+    sost: уд
+- contacts: '+79200173800'
+  flat: 69
+  id: 10
+  inst: ИРИТ
+  name: Сидоров Георгий Владимирович
+  narush: Дрочил в туалете общежития
+  obshaga_num: 3
+  passport_num: 8989 678532
+  viselenie:
+    id: 11
+    ready: false
+    sost: неуд
+- contacts: '+79993225252'
+  flat: 107
+  id: 11
+  inst: ИРИТ
+  name: Сорокин Алексей Александрович
+  narush: Курил травку в комнате
+  obshaga_num: 1
+  passport_num: 1488 228666
+  viselenie:
+    id: 12
+    ready: true
+    sost: неуд
