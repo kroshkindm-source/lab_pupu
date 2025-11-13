@@ -2,6 +2,11 @@ import sqlite3
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
+import json
+import csv
+import xml.etree.ElementTree as ET
+import yaml
+from pathlib import Path
 
 conn = sqlite3.connect('kitov_A.db')
 cursor = conn.cursor()
@@ -24,7 +29,6 @@ ready BOOLEAN)''')
 conn.commit()
 conn.close()
 Base = declarative_base()
-
 
 
 class Zaselenie(Base):
@@ -63,6 +67,76 @@ def create_database():
     engine = create_engine('sqlite:///kitov_A.db')
     Base.metadata.create_all(engine)
     return engine
+
+
+def export_data_to_files(session):
+    output_dir = Path("out")
+    output_dir.mkdir(exist_ok=True)
+
+    results = session.query(Zaselenie, Viselenie). \
+        outerjoin(Viselenie, Zaselenie.id == Viselenie.id_vis). \
+        all()
+
+    data = []
+    for zaselenie, viselenie in results:
+        resident_data = {
+            'id': zaselenie.id,
+            'name': zaselenie.name,
+            'flat': zaselenie.flat,
+            'passport_num': zaselenie.passport_num,
+            'inst': zaselenie.inst,
+            'contacts': zaselenie.contacts,
+            'obshaga_num': zaselenie.obshaga_num,
+            'narush': zaselenie.narush,
+            'viselenie': {
+                'id': viselenie.id if viselenie else None,
+                'sost': viselenie.sost if viselenie else None,
+                'ready': viselenie.ready if viselenie else None
+            } if viselenie else None
+        }
+        data.append(resident_data)
+
+    with open(output_dir / "data.json", 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+    with open(output_dir / "data.csv", 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            'id', 'name', 'flat', 'passport_num', 'inst', 'contacts',
+            'obshaga_num', 'narush', 'viselenie_id', 'viselenie_sost', 'viselenie_ready'
+        ])
+        for item in data:
+            writer.writerow([
+                item['id'],
+                item['name'],
+                item['flat'],
+                item['passport_num'],
+                item['inst'],
+                item['contacts'],
+                item['obshaga_num'],
+                item['narush'],
+                item['viselenie']['id'] if item['viselenie'] else '',
+                item['viselenie']['sost'] if item['viselenie'] else '',
+                item['viselenie']['ready'] if item['viselenie'] else ''
+            ])
+
+    root = ET.Element('residents')
+    for item in data:
+        resident_elem = ET.SubElement(root, 'resident')
+        for key, value in item.items():
+            if key == 'viselenie' and value:
+                viselenie_elem = ET.SubElement(resident_elem, 'viselenie')
+                for v_key, v_value in value.items():
+                    ET.SubElement(viselenie_elem, v_key).text = str(v_value)
+            else:
+                ET.SubElement(resident_elem, key).text = str(value)
+    tree = ET.ElementTree(root)
+    tree.write(output_dir / "data.xml", encoding='utf-8', xml_declaration=True)
+
+    with open(output_dir / "data.yaml", 'w', encoding='utf-8') as f:
+        yaml.dump(data, f, allow_unicode=True, default_flow_style=False)
+
+    print(f"Данные успешно экспортированы в папку {output_dir}/")
 
 
 def get_residents_by_flat(session, flat_number):
@@ -105,7 +179,7 @@ def print_residents(residents, flat_number):
         print(f"  Контакты: {resident['contacts']}")
         print(f"  Общежитие: №{resident['obshaga_num']}")
         print(f"  Нарушения: {resident['violations']}")
-        print(f"  Состояние комнаты2: {resident['eviction_status']}")
+        print(f"  Состояние комнаты: {resident['eviction_status']}")
         print(f"  Готов к выселению: {'Да' if resident['ready_to_evict'] else 'Нет'}")
         print(f"{'-' * 40}")
 
@@ -137,8 +211,7 @@ def add_new_resident(session):
         session.add(new_zaselenie)
         session.commit()
 
-        sost = input("Состояние комнаты"
-                     " (уд/неуд): ")
+        sost = input("Состояние комнаты (уд/неуд): ")
         ready = input("Готов к выселению (да/нет): ").lower() == 'да'
 
         new_viselenie = Viselenie(
@@ -212,9 +285,10 @@ def main_menu(session):
         print("=" * 50)
         print("1 - Добавить нового жителя")
         print("2 - Найти жителей по номеру комнаты")
-        print("3 - Выйти")
+        print("3 - Экспорт данных в файлы")
+        print("4 - Выйти")
 
-        choice = input("\nВыберите действие (1-3): ").strip()
+        choice = input("\nВыберите действие (1-4): ").strip()
 
         if choice == '1':
             add_new_resident(session)
@@ -224,6 +298,10 @@ def main_menu(session):
             search_residents_by_flat(session)
 
         elif choice == '3':
+            export_data_to_files(session)
+            input("\nНажмите Enter для продолжения...")
+
+        elif choice == '4':
             print("Выход из программы.")
             break
 
@@ -256,9 +334,6 @@ if __name__ == "__main__":
 
         test_evictions = [
             Viselenie(id_vis=1, sost="уд", ready=False),
-            Viselenie(id_vis=2, sost="неуд", ready=True),
-            Viselenie(id_vis=3, sost="уд", ready=False),
-            Viselenie(id_vis=4, sost="уд", ready=False)
         ]
 
         for eviction in test_evictions:
