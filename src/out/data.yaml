@@ -58,3 +58,15 @@
     id: 12
     ready: true
     sost: неуд
+- contacts: '+79017528192'
+  flat: 201
+  id: 12
+  inst: ИНЭУ
+  name: Майкл Джордан Михайлович
+  narush: нет
+  obshaga_num: 3
+  passport_num: 0275 462812
+  viselenie:
+    id: 13
+    ready: true
+    sost: уд

@@ -73,5 +73,20 @@
       "sost": "неуд",
       "ready": true
     }
+  },
+  {
+    "id": 12,
+    "name": "Майкл Джордан Михайлович",
+    "flat": 201,
+    "passport_num": "0275 462812",
+    "inst": "ИНЭУ",
+    "contacts": "+79017528192",
+    "obshaga_num": 3,
+    "narush": "нет",
+    "viselenie": {
+      "id": 13,
+      "sost": "уд",
+      "ready": true
+    }
   }
 ]
