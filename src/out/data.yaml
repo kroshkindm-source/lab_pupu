@@ -70,3 +70,15 @@
     id: 13
     ready: true
     sost: уд
+- contacts: '+79533099509'
+  flat: 39
+  id: 13
+  inst: ИРИТ
+  name: Скрябин Ярослав Тимурович
+  narush: Сотрудничество с преступной организацией
+  obshaga_num: 1
+  passport_num: 7777 777777
+  viselenie:
+    id: 14
+    ready: true
+    sost: гипернеуд

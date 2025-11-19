@@ -20,7 +20,7 @@ inst TEXT,
 contacts TEXT,
 obshaga_num INTEGER,
 narush TEXT)''')
-cursor.execute('''
+cursor.execute(''' 
 CREATE TABLE IF NOT EXISTS viselenie(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 id_vis INTEGER FOREIGNKEY REFERENCES zaselenie(id),
