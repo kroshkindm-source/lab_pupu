@@ -232,6 +232,35 @@ def add_new_resident(session):
         session.rollback()
 
 
+def delete_resident_by_name(session):
+    print("\n" + "=" * 50)
+    print("УДАЛЕНИЕ ЖИТЕЛЯ")
+    print("=" * 50)
+
+    try:
+        full_name = input("Введите ФИО жителя для удаления: ").strip()
+
+        resident = session.query(Zaselenie).filter(Zaselenie.name == full_name).first()
+
+        if not resident:
+            print(f"Житель с ФИО '{full_name}' не найден.")
+            return
+
+        viselenie = session.query(Viselenie).filter(Viselenie.id_vis == resident.id).first()
+
+        if viselenie:
+            session.delete(viselenie)
+
+        session.delete(resident)
+        session.commit()
+
+        print(f"Житель {full_name} успешно удален из базы данных.")
+
+    except Exception as e:
+        print(f"Ошибка при удаления: {e}")
+        session.rollback()
+
+
 def search_residents_by_flat(session):
     while True:
         print("\n" + "=" * 50)
@@ -286,9 +315,10 @@ def main_menu(session):
         print("1 - Добавить нового жителя")
         print("2 - Найти жителей по номеру комнаты")
         print("3 - Экспорт данных в файлы")
-        print("4 - Выйти")
+        print("4 - Удалить жителя по ФИО")
+        print("5 - Выйти")
 
-        choice = input("\nВыберите действие (1-4): ").strip()
+        choice = input("\nВыберите действие (1-5): ").strip()
 
         if choice == '1':
             add_new_resident(session)
@@ -302,6 +332,10 @@ def main_menu(session):
             input("\nНажмите Enter для продолжения...")
 
         elif choice == '4':
+            delete_resident_by_name(session)
+            input("\nНажмите Enter для продолжения...")
+
+        elif choice == '5':
             print("Выход из программы.")
             break
 

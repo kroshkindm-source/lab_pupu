@@ -1,35 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Китов Артём Андреевич",
-    "flat": 228,
-    "passport_num": "6969 228228",
-    "inst": "ИРИТ",
-    "contacts": "+79997776969",
-    "obshaga_num": 1,
-    "narush": "Насрал посередине комнаты",
-    "viselenie": {
-      "id": 1,
-      "sost": "неуд",
-      "ready": false
-    }
-  },
-  {
-    "id": 2,
-    "name": "Хивинова Ирина Александровна",
-    "flat": 228,
-    "passport_num": "1234 567891",
-    "inst": "ИРИТ",
-    "contacts": "+79991234567",
-    "obshaga_num": 1,
-    "narush": "Нет нарушений",
-    "viselenie": {
-      "id": 9,
-      "sost": "уд",
-      "ready": false
-    }
-  },
-  {
     "id": 9,
     "name": "Крошкин Дмитрий Владимирович",
     "flat": 107,
@@ -101,6 +71,36 @@
     "viselenie": {
       "id": 14,
       "sost": "гипернеуд",
+      "ready": true
+    }
+  },
+  {
+    "id": 15,
+    "name": "Иванов Иван Иванович",
+    "flat": 204,
+    "passport_num": "4385 583922",
+    "inst": "ИПТМ",
+    "contacts": "+74829210673",
+    "obshaga_num": 2,
+    "narush": "нарушение использования электроприборов",
+    "viselenie": {
+      "id": 16,
+      "sost": "уд",
+      "ready": false
+    }
+  },
+  {
+    "id": 16,
+    "name": "Русаков Игорь Игоревич",
+    "flat": 1,
+    "passport_num": "1092 746211",
+    "inst": "ИРИТ",
+    "contacts": "+79302618324",
+    "obshaga_num": 6,
+    "narush": "курение в общежитии",
+    "viselenie": {
+      "id": 17,
+      "sost": "уд",
       "ready": true
     }
   }

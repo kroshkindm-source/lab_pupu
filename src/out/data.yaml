@@ -1,27 +1,3 @@
-- contacts: '+79997776969'
-  flat: 228
-  id: 1
-  inst: ИРИТ
-  name: Китов Артём Андреевич
-  narush: Насрал посередине комнаты
-  obshaga_num: 1
-  passport_num: 6969 228228
-  viselenie:
-    id: 1
-    ready: false
-    sost: неуд
-- contacts: '+79991234567'
-  flat: 228
-  id: 2
-  inst: ИРИТ
-  name: Хивинова Ирина Александровна
-  narush: Нет нарушений
-  obshaga_num: 1
-  passport_num: 1234 567891
-  viselenie:
-    id: 9
-    ready: false
-    sost: уд
 - contacts: '+79203573573'
   flat: 107
   id: 9
@@ -82,3 +58,27 @@
     id: 14
     ready: true
     sost: гипернеуд
+- contacts: '+74829210673'
+  flat: 204
+  id: 15
+  inst: ИПТМ
+  name: Иванов Иван Иванович
+  narush: нарушение использования электроприборов
+  obshaga_num: 2
+  passport_num: 4385 583922
+  viselenie:
+    id: 16
+    ready: false
+    sost: уд
+- contacts: '+79302618324'
+  flat: 1
+  id: 16
+  inst: ИРИТ
+  name: Русаков Игорь Игоревич
+  narush: курение в общежитии
+  obshaga_num: 6
+  passport_num: 1092 746211
+  viselenie:
+    id: 17
+    ready: true
+    sost: уд
